@@ -1166,6 +1166,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.VOLTAGE,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": None,
+        "value_map": lambda x: x / 1000 if x is not None else None,  # API returns mV
     },
     "bms_amp": {
         "name": "Battery Current",
@@ -1174,6 +1175,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.CURRENT,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": None,
+        "value_map": lambda x: x / 1000 if x is not None else None,  # API returns mA
     },
     "bms_soh": {
         "name": "Battery Health",
@@ -1324,6 +1326,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:solar-power",
+        "value_map": lambda x: x / 10 if x is not None else None,  # API returns 0.1W (deciwatts)
     },
     "mppt_out_watts": {
         "name": "MPPT Output Power",
@@ -1332,6 +1335,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:flash",
+        "value_map": lambda x: x / 10 if x is not None else None,  # API returns 0.1W (deciwatts)
     },
     "mppt_temp": {
         "name": "MPPT Temperature",
@@ -1348,6 +1352,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:car-battery",
+        "value_map": lambda x: x / 10 if x is not None else None,  # API returns 0.1W (deciwatts)
     },
     "mppt_car_out_watts": {
         "name": "Car Charger Output Power",
@@ -1356,6 +1361,7 @@ DELTA_PRO_SENSOR_DEFINITIONS = {
         "device_class": SensorDeviceClass.POWER,
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:car",
+        "value_map": lambda x: x / 10 if x is not None else None,  # API returns 0.1W (deciwatts)
     },
     "mppt_car_temp": {
         "name": "Car Charger Temperature",

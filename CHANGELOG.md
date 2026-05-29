@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.9] - 2026-05-29
+
+### 🐛 Bug Fixes
+
+- **Fixed unscaled milli-unit Delta Pro telemetry (issue #54)** —
+  Several original Delta Pro sensors exposed the raw fixed-point values from
+  the EcoFlow API instead of scaling them into standard units, producing
+  impossible readings and corrupting Recorder/Energy Dashboard statistics:
+  - `bmsMaster.vol` (Battery Voltage) and `bmsMaster.amp` (Battery Current)
+    are reported in milli-units (factor `0.001`) and are now divided by 1000
+    (e.g. `49305` → `49.305 V`, `-3443` → `-3.443 A`).
+  - The MPPT power family — `mppt.inWatts` (Solar Input Power),
+    `mppt.outWatts`, `mppt.dcdc12vWatts`, `mppt.carOutWatts` — is reported in
+    deciwatts (factor `0.1`) and is now divided by 10.
+
+  `inv.*` / `pd.*` watt fields are plain watts and were left unchanged.
+  Field factors were cross-verified against the EcoFlow Developer API and the
+  foxthefox/ioBroker and tolwi/hassio-ecoflow-cloud reference implementations.
+
+  > ⚠️ Existing long-term statistics for these sensors recorded before this
+  > release contain a 1000× (voltage/current) or 10× (solar power)
+  > discontinuity and may need a manual statistics purge.
+
+---
+
 ## [1.10.6] - 2026-05-14
 
 ### 🐛 Bug Fixes
