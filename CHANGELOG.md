@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.14] - 2026-05-30
+
+### 🎉 New Features
+
+- **Per-AC-plug live consumption for Stream Ultra X / AC Pro (issue #52)** —
+  Added two power sensors exposing the live consumption of each AC output
+  (Schuko) port, matching the values shown in the official EcoFlow app:
+  - **AC Plug 1 Power** — `powGetSchuko1`
+  - **AC Plug 2 Power** — `powGetSchuko2`
+
+  Both are reported in plain watts (no scaling), enabling automations such as
+  detecting when an appliance on a specific plug has finished running. Confirmed
+  working by the reporter on both Stream Ultra and Stream AC Pro (graduated from
+  the v1.10.10 pre-release).
+
+---
+
 ## [1.10.12] - 2026-05-29
 
 ### 🔧 Consolidation
