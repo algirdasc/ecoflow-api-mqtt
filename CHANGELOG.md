@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.17-alpha.2] - 2026-06-01
+
+### 🧪 Experimental: Stream Microinverter (issue #53)
+
+- **Removed the spurious PV3 / PV4 solar power sensors.** The Stream Microinverter
+  has a maximum of two MPPTs per the product manual, so only **PV1** (`powGetPv`)
+  and **PV2** (`powGetPv2`) inputs are exposed now. Reported by
+  @kristiansnelling-art, who confirmed entities populate correctly on
+  v1.10.17-alpha.1.
+
+---
+
 ## [1.10.17-alpha.1] - 2026-06-01
 
 ### Experimental

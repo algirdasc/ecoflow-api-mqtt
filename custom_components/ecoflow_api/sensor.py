@@ -3502,22 +3502,8 @@ STREAM_MICRO_INVERTER_SENSOR_DEFINITIONS = {
         "state_class": SensorStateClass.MEASUREMENT,
         "icon": "mdi:solar-power",
     },
-    "solar_power_pv3": {
-        "name": "PV3 Solar Power",
-        "key": "powGetPv3",
-        "unit": UnitOfPower.WATT,
-        "device_class": SensorDeviceClass.POWER,
-        "state_class": SensorStateClass.MEASUREMENT,
-        "icon": "mdi:solar-power",
-    },
-    "solar_power_pv4": {
-        "name": "PV4 Solar Power",
-        "key": "powGetPv4",
-        "unit": UnitOfPower.WATT,
-        "device_class": SensorDeviceClass.POWER,
-        "state_class": SensorStateClass.MEASUREMENT,
-        "icon": "mdi:solar-power",
-    },
+    # Stream Microinverter has a maximum of 2 MPPTs (per the product manual),
+    # so only PV1/PV2 inputs are exposed.
     "grid_connection_power": {
         "name": "Grid Connection Power",
         "key": "gridConnectionPower",
