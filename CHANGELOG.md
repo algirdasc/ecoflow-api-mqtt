@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.17-alpha.1] - 2026-06-01
+
+### Experimental
+
+- **Rebased Stream Microinverter support onto the current release line
+  (issue #53)** - adds the dedicated `Stream Microinverter` device type on top
+  of `v1.10.15`, so testers no longer need to roll back to the older
+  `v1.10.8-alpha.1` build and lose the Base Load Power fixes.
+- Adds the initial telemetry mapping for PV string power (`powGetPv`,
+  `powGetPv2`, `powGetPv3`, `powGetPv4`), grid power/voltage/frequency/status,
+  feed-in power limit fields, inverter temperature, and Wi-Fi RSSI.
+- Registers empty control maps for switch/number/select/button platforms so the
+  device type does not fall back to unrelated Delta or PowerStream controls.
+
+### Notes
+
+- This is still a validation alpha. The field names came from issue #53
+  reports and still need confirmation from a real `/quota/all` or DEBUG/MQTT
+  payload on the latest line.
+
+---
+
 ## [1.10.15] - 2026-05-30
 
 ### 🐛 Bug Fixes
