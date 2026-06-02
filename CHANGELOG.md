@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.17] - 2026-06-02
+
+### New Features
+
+- **Added stable Stream Microinverter support (issue #53)** — Adds the dedicated
+  `Stream Microinverter` device type with validated telemetry for PV1/PV2 solar
+  power, grid power/voltage/frequency/status, feed-in power limits, inverter
+  temperature, Wi-Fi RSSI, and derived diagnostics for solar generation, grid
+  feed-in, and grid connectivity.
+- Registers empty control maps for switch/number/select/button platforms so the
+  device does not inherit unrelated Delta or PowerStream controls while command
+  payloads are still unverified.
+
+### Validation
+
+- Promoted from `v1.10.17-alpha.2` after community confirmation that entities
+  populate correctly and the extra PV3/PV4 sensors were removed to match the
+  device's two MPPT inputs.
+
+---
+
 ## [1.10.17-alpha.2] - 2026-06-01
 
 ### 🧪 Experimental: Stream Microinverter (issue #53)
